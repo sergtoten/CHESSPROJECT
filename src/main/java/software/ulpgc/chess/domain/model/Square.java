@@ -1,5 +1,7 @@
 package software.ulpgc.chess.domain.model;
 
+import java.util.Arrays;
+
 public record Square(File file, Rank rank) {
 
     public static Square at(String square) {
@@ -10,9 +12,10 @@ public record Square(File file, Rank rank) {
     }
 
     private static Rank rankIn(char c) {
-        for (Rank r : Rank.values()) {
-            if (r.value() == c) return r;
-        } return null;
+        return Arrays.stream(Rank.values())
+                .filter(rank -> rank.value() == c)
+                .findFirst()
+                .orElse(null);
     }
 
     private static File fileIn(String square) {
@@ -20,10 +23,9 @@ public record Square(File file, Rank rank) {
     }
 
     private static File fileIn(char c ) {
-        for (File f : File.values()) {
-            if (f.symbol() == c) {
-                return f;
-            }
-        } return null;
+        return Arrays.stream(File.values())
+                .filter(file -> file.symbol() == c)
+                .findFirst()
+                .orElse(null);
     }
 }
