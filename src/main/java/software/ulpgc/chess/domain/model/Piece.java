@@ -10,38 +10,36 @@ public enum Piece {
     WhitePawn, WhiteRook, WhiteKnight, WhiteBishop, WhiteKing, WhiteQueen,
     BlackPawn, BlackRook, BlackKnight, BlackBishop, BlackKing, BlackQueen;
 
-    private static final Set<Piece> WhitesPieces = Collections.unmodifiableSet(EnumSet.of(WhitePawn, WhiteRook, WhiteKnight, WhiteBishop, WhiteKing, WhiteQueen));
-
-    Color color() {
-        return isWhite() ? White : Black;
+    public boolean isWhite() {
+        return this.name().startsWith("White");
     }
 
-    private boolean isWhite() {
-        return WhitesPieces.contains(this);
+    public boolean isBlack() {
+        return this.name().startsWith("Black");
     }
 
-    boolean isPawn() {
-        return this == WhitePawn || this == BlackPawn;
+    public boolean isRook() {
+        return this.name().endsWith("Rook");
     }
 
-    boolean isRook() {
-        return this == WhiteRook || this == BlackRook;
+    public boolean isPawn() {
+        return this.name().endsWith("Pawn");
     }
 
-    boolean isKnight() {
-        return this == WhiteKnight || this == BlackKnight;
+    public boolean isKnight() {
+        return this.name().endsWith("Knight");
     }
 
-    boolean isBishop() {
-        return this == WhiteBishop || this == BlackBishop;
+    public boolean isBishop() {
+        return this.name().endsWith("Bishop");
     }
 
-    boolean isKing() {
-        return this == WhiteKing || this == BlackKing;
+    public boolean isQueen() {
+        return this.name().endsWith("Queen");
     }
 
-    boolean isQueen() {
-        return this == WhiteQueen || this == BlackQueen;
+    public boolean isKing() {
+        return this.name().endsWith("King");
     }
 
 }
