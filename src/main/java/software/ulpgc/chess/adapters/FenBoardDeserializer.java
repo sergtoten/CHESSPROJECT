@@ -40,12 +40,8 @@ public class FenBoardDeserializer implements BoardDeserializer {
             if (c >= '1' && c <= '8')
                 file += c - '0';
             else
-                map.put(Square.at(file++, rank), pieceFor(c));
+                map.put(Square.at(file++, rank), PIECES.get(c));
         }
         return map;
-    }
-
-    private Piece pieceFor(char c) {
-        return PIECES.get(c);
     }
 }
