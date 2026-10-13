@@ -17,7 +17,7 @@ public record Square(File file, Rank rank) {
 
     private static Rank rankIn(char c) {
         return Arrays.stream(Rank.values())
-                .filter(rank -> rank.value() == c)
+                .filter(rank -> rank.symbol() == c)
                 .findFirst()
                 .orElse(null);
     }
