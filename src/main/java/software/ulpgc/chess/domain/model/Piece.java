@@ -1,10 +1,10 @@
-package software.ulpgc.chess;
+package software.ulpgc.chess.domain.model;
 
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
 
-import static software.ulpgc.chess.Color.*;
+import static software.ulpgc.chess.domain.model.Color.*;
 
 public enum Piece {
     WhitePawn, WhiteRook, WhiteKnight, WhiteBishop, WhiteKing, WhiteQueen,
