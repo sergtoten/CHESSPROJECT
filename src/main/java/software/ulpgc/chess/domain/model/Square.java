@@ -3,10 +3,14 @@ package software.ulpgc.chess.domain.model;
 import java.util.Arrays;
 
 public record Square(File file, Rank rank) {
-
     public static Square at(String square) {
         return new Square(fileIn(square), rankIn(square));
     }
+
+    public static Square at(int i, int j) {
+        return new Square(File.values()[i],  Rank.values()[j]);
+    }
+
     private static Rank rankIn(String square) {
         return rankIn(square.charAt(1));
     }
